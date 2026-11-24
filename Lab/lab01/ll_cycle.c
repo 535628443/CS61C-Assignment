@@ -2,6 +2,20 @@
 #include "ll_cycle.h"
 
 int ll_has_cycle(node *head) {
-    /* your code here */
-    return 0;
+	if (head == NULL) {
+		return 0;
+	}
+
+	node *tortoise = head;
+	node *hare = head;
+
+	while (hare != NULL && hare->next != NULL) {
+		hare = hare->next->next;
+		tortoise = tortoise->next;
+		
+		if (hare == tortoise) {
+			return 1;
+		}
+	}
+	return 0;
 }
